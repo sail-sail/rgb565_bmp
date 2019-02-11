@@ -1,0 +1,41 @@
+{
+    // Use IntelliSense to learn about possible Node.js debug attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+		{
+            "type": "node",
+            "request": "launch",
+            "name": "nest",
+            "program": "${workspaceRoot}/nest/node_modules/ts-node/dist/bin.js",
+            // "runtimeArgs": [
+            //     "-r",
+            //     "ts-node/register"
+            // ],
+            "cwd": "${workspaceRoot}/nest",
+            "args": ["./src/main.ts"],
+            "sourceMaps": true,
+            "env": {
+                "TS_NODE_TRANSPILE_ONLY": "true",
+                "NODE_ENV": "development"
+            }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "ng-pc",
+            "program": "${workspaceRoot}/ng/node_modules/@angular/cli/bin/ng",
+            "cwd": "${workspaceRoot}/ng",
+            //"args": ["serve","--live-reload=true","--hmr","--configuration","hmr","--proxy-config","proxy.config.json","--host","0.0.0.0"]
+            "args": ["serve","--disable-host-check","--live-reload=false","--proxy-config","proxy.config.json","--host","0.0.0.0"]
+        },
+        {
+            "name": "chrome-pc",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4201/pc/",
+            "webRoot": "${workspaceFolder}/ng"
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+  "name": "rgb565_bmp",
+  "version": "1.0.0",
+  "description": "rgb565 to bmp",
+  "main": "./src/main.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jest"
+  },
+  "keywords": [
+    "rgb565",
+    "bmp"
+  ],
+  "author": "Sail",
+  "contributors": [
+    {
+      "name": "Sail",
+      "email": "151263555@qq.com",
+      "url": "https://github.com/sail-sail"
+    }
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "bindings": "1.4.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "5.0.4",
+    "@types/jest": "24.0.0",
+    "@types/node": "10.12.24",
+    "fs-extra": "7.0.1",
+    "gulp": "4.0.0",
+    "gulp-file": "0.4.0",
+    "gulp-typescript": "5.0.0",
+    "gulp-uglify-es": "1.0.4",
+    "jest": "23.6.0",
+    "ts-jest": "23.10.5",
+    "ts-loader": "5.3.3",
+    "ts-node": "8.0.2",
+    "tsconfig-paths": "3.7.0",
+    "typescript": "3.3.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "test",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      ".+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage"
+  }
+}
