@@ -11,58 +11,70 @@
       nWidth            :图像宽度的像素数
       nHeight           :图像高度的像素数
 *****************************/
-int RGB2BMP(unsigned char* rgb_buffer, int nWidth, int nHeight) {
-  BmpHead m_BMPHeader;        
-  m_BMPHeader.imageSize=3*nWidth*nHeight+54;
-  m_BMPHeader.blank=0;
-  m_BMPHeader.startPosition=54;
+int RGB2BMP(unsigned char* rgb_buffer, int nWidth, int nHeight) {      
   
   rgb_buffer[0] = 0x42;
   rgb_buffer[1] = 0x4D;
-  rgb_buffer += 2;
+  rgb_buffer[2] = 0x36;
+  rgb_buffer[3] = 0x84;
+  rgb_buffer[4] = 0x03;
+  rgb_buffer[5] = 0x00;
+  rgb_buffer[6] = 0x00;
+  rgb_buffer[7] = 0x00;
   
-  memcpy(rgb_buffer, &m_BMPHeader.imageSize, sizeof(m_BMPHeader.imageSize));
-  rgb_buffer += sizeof(m_BMPHeader.imageSize);
-  memcpy(rgb_buffer, &m_BMPHeader.blank, sizeof(m_BMPHeader.blank));
-  rgb_buffer += sizeof(m_BMPHeader.blank);
-  memcpy(rgb_buffer, &m_BMPHeader.startPosition, sizeof(m_BMPHeader.startPosition));
-  rgb_buffer += sizeof(m_BMPHeader.startPosition);
+  rgb_buffer[8] = 0x00;
+  rgb_buffer[9] = 0x00;
+  rgb_buffer[10] = 0x36;
+  rgb_buffer[11] = 0x00;
+  rgb_buffer[12] = 0x00;
+  rgb_buffer[13] = 0x00;
+  rgb_buffer[14] = 0x28;
+  rgb_buffer[15] = 0x00;
   
-  InfoHead  m_BMPInfoHeader;
-  m_BMPInfoHeader.Length=40; 
-  m_BMPInfoHeader.width=nWidth;
-  m_BMPInfoHeader.height=nHeight;
-  m_BMPInfoHeader.colorPlane=1;
-  m_BMPInfoHeader.bitColor=24;
-  m_BMPInfoHeader.zipFormat=0;
-  m_BMPInfoHeader.realSize=3*nWidth*nHeight;
-  m_BMPInfoHeader.xPels=0;
-  m_BMPInfoHeader.yPels=0;
-  m_BMPInfoHeader.colorUse=0;
-  m_BMPInfoHeader.colorImportant=0;
-
-  memcpy(rgb_buffer, &m_BMPInfoHeader.Length, sizeof(m_BMPInfoHeader.Length));
-  rgb_buffer += sizeof(m_BMPInfoHeader.width);
-  memcpy(rgb_buffer, &m_BMPInfoHeader.width, sizeof(m_BMPInfoHeader.width));
-  rgb_buffer += sizeof(m_BMPInfoHeader.width);
-  memcpy(rgb_buffer, &m_BMPInfoHeader.height, sizeof(m_BMPInfoHeader.height));
-  rgb_buffer += sizeof(m_BMPInfoHeader.height);
-  memcpy(rgb_buffer, &m_BMPInfoHeader.colorPlane, sizeof(m_BMPInfoHeader.colorPlane));
-  rgb_buffer += sizeof(m_BMPInfoHeader.colorPlane);
-  memcpy(rgb_buffer, &m_BMPInfoHeader.bitColor, sizeof(m_BMPInfoHeader.bitColor));
-  rgb_buffer += sizeof(m_BMPInfoHeader.bitColor);
-  memcpy(rgb_buffer, &m_BMPInfoHeader.zipFormat, sizeof(m_BMPInfoHeader.zipFormat));
-  rgb_buffer += sizeof(m_BMPInfoHeader.zipFormat);
-  memcpy(rgb_buffer, &m_BMPInfoHeader.realSize, sizeof(m_BMPInfoHeader.realSize));
-  rgb_buffer += sizeof(m_BMPInfoHeader.realSize);
-  memcpy(rgb_buffer, &m_BMPInfoHeader.xPels, sizeof(m_BMPInfoHeader.xPels));
-  rgb_buffer += sizeof(m_BMPInfoHeader.xPels);
-  memcpy(rgb_buffer, &m_BMPInfoHeader.yPels, sizeof(m_BMPInfoHeader.yPels));
-  rgb_buffer += sizeof(m_BMPInfoHeader.yPels);
-  memcpy(rgb_buffer, &m_BMPInfoHeader.colorUse, sizeof(m_BMPInfoHeader.colorUse));
-  rgb_buffer += sizeof(m_BMPInfoHeader.colorUse);
-  memcpy(rgb_buffer, &m_BMPInfoHeader.colorImportant, sizeof(m_BMPInfoHeader.colorImportant));
-  rgb_buffer += sizeof(m_BMPInfoHeader.colorImportant);
+  rgb_buffer[16] = 0x00;
+  rgb_buffer[17] = 0x00;
+  rgb_buffer[18] = 0x40;
+  rgb_buffer[19] = 0x01;
+  rgb_buffer[20] = 0x00;
+  rgb_buffer[21] = 0x00;
+  rgb_buffer[22] = 0xF0;
+  rgb_buffer[23] = 0x00;
+  
+  rgb_buffer[24] = 0x00;
+  rgb_buffer[25] = 0x00;
+  rgb_buffer[26] = 0x01;
+  rgb_buffer[27] = 0x00;
+  rgb_buffer[28] = 0x18;
+  rgb_buffer[29] = 0x00;
+  rgb_buffer[30] = 0x00;
+  rgb_buffer[31] = 0x00;
+  
+  rgb_buffer[32] = 0x00;
+  rgb_buffer[33] = 0x00;
+  rgb_buffer[34] = 0x00;
+  rgb_buffer[35] = 0x84;
+  rgb_buffer[36] = 0x03;
+  rgb_buffer[37] = 0x00;
+  rgb_buffer[38] = 0x00;
+  rgb_buffer[39] = 0x00;
+  
+  rgb_buffer[40] = 0x00;
+  rgb_buffer[41] = 0x00;
+  rgb_buffer[42] = 0x00;
+  rgb_buffer[43] = 0x00;
+  rgb_buffer[44] = 0x00;
+  rgb_buffer[45] = 0x00;
+  rgb_buffer[46] = 0x00;
+  rgb_buffer[47] = 0x00;
+  
+  rgb_buffer[48] = 0x00;
+  rgb_buffer[49] = 0x00;
+  rgb_buffer[50] = 0x00;
+  rgb_buffer[51] = 0x00;
+  rgb_buffer[52] = 0x00;
+  rgb_buffer[53] = 0x00;
+  rgb_buffer[54] = 0x78;
+  
   return 0;
 }
 
